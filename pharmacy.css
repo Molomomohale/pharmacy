@@ -1,0 +1,803 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body{
+	font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    overflow: auto;
+
+}
+h2{
+    text-align: center;
+    color: blue;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.home-container{
+max-width: 100%;
+background-color: #47c0f0;
+height: auto;
+margin: 5px;
+overflow: auto;
+}
+
+.align-items-center{
+align-items: center; 
+}
+
+.justify-content-between{
+justify-content: space-between;
+}
+
+.row{
+display: flex;
+flex-wrap: wrap;
+}
+
+/*header*/
+.header{
+padding: 12px 0; 
+line-height: 1.8;
+position: fixed;
+width: 100%;
+top: 0;
+}
+
+.hearder .logo,
+.header .nav{
+background-color: burlywood;
+padding: 0 15px;  
+}
+
+.header .logo h3{
+/*font-size: 30px;*/
+color: #fff;
+text-transform: uppercase;
+margin-left: 10px;
+}
+.header .logo p{
+	color: #fff;
+}
+.header .nav{
+background-color: #47c0f0;
+}
+.header .nav ul li{
+display: inline-block;
+margin-left: 60px;
+
+}
+.header .nav ul li a{
+font-size: 16px;
+display: block;
+color: white;
+text-transform: capitalize;
+padding: 10px 0;
+transition: all 0.5s ease;
+}
+.header .nav ul li a:hover{
+background-color: rgb(79, 148, 228);
+color:#f1f1f1;
+width: auto;
+height: auto;
+border-radius: 7px;
+transition: 0.4s;
+padding: 6px;
+}
+.header .nav ul li a:active{
+color:green;
+}
+.nav-toggler{
+height: 34px;
+width: 44px;
+background-color: white;
+border-radius: 4px;
+cursor: pointer;
+border: none;
+display: none;
+margin-right: 15px;
+}
+.nav-toggler:focus{
+outline: none;
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+.nav-toggler span{
+height: 2px;
+width: 20px;
+background-color: black;
+display: block;
+margin: auto;
+position: relative;
+transition: all 0.3s ease;
+}
+.nav-toggler.active span{
+background-color: transparent;   
+}
+.nav-toggler span::before,
+.nav-toggler span::after{
+content: '';
+position: absolute;
+left: 0; 
+top: 0;
+width: 100%;
+height: 100%;
+background-color: black;
+transition: all 0.3s ease;
+}    
+.nav-toggler span::before{
+transform: translateY(-6px);
+}
+.nav-toggler.active span::before{
+transform: rotate(45deg);
+}
+
+.nav-toggler span::after{
+transform: translateY(6px);
+}
+.nav-toggler.active span::after{
+transform: rotate(135deg);
+}
+@media(max-width:991px){
+    .home-container{
+        max-width: 100%;
+        max-height: 100vh;
+    }
+}
+
+/********small screen resolution*********/
+@media only screen and (max-width:768px) {
+html{
+		font-size: 65%;
+		padding: 0;
+		margin: 0;
+	}
+	.flex {
+		width: 100%;
+	}
+	
+	    .notification-badge {
+        font-size: 10px;
+        min-width: 18px; /* Adjust badge size on smaller screens */
+    }
+header{
+	position: fixed;
+	width: 80%;
+	margin-left: 0.1rem;
+}
+
+header .logo p{
+	display: none;
+	color: #fff;
+}
+header .fa-bars{
+		display: block;
+}
+header .navbar{
+	position: fixed;
+	top: 1rem; left: 0;
+	width: 70%;
+	margin-top: -1.1rem;
+	margin-left: 2rem;
+	background: #FFF;
+	border-radius: 1rem;
+	opacity: 0; 
+	transition: .2s, linear;  
+}
+
+header .navbar ul{
+	flex-flow: column;
+	padding: 2rem 0;
+}
+
+header .navbar ul li{
+	margin: 0.2rem 0;
+	width: 100%;
+	text-align: center;
+}
+
+header .navbar ul li a{
+	font-size: 1.8rem;
+	display: block;
+	margin: 1px auto;
+}
+
+header .nav-toggle{
+	top: 5.5rem;
+	opacity: 1; 
+}
+  
+}
+/*close head styling*/
+
+/****************************************************************/
+/* Header Styles */
+header {
+	width: 95%;
+	background: #0288d1;
+	position: fixed;
+	top: 1.5rem; left: 50%;
+	transform: translateX(-50%);
+	border-radius: 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 0.5rem;
+	z-index: 1000;
+	transition: .2s;
+}
+.header-active{
+	top:0;
+	width: 100%;
+	border-radius: 0;
+	box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+}
+
+header .navbar ul{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	list-style: none;
+}
+
+header .navbar ul li{
+	margin: 0 0.5rem;
+}
+
+header .navbar ul li a{
+	font-size: 1.1rem;
+	color: #fff;
+	text-decoration: none;
+	transition: .2s;
+}
+
+.active{
+	color: #999;
+	background: floralwhite;
+	padding: 4px 12px;
+	border-radius: 5px;
+}
+
+header .navbar ul li .active,
+header .navbar ul li a:hover{
+	color: #B0C4DE;
+}
+
+header .logo{
+	display: flex;
+	margin: auto 1rem;
+	text-align: center;
+	font-size: 1.2rem;
+	color: #1E90FF;
+	text-transform: uppercase;
+}
+header .logo p{
+	margin-top: 0.3rem;
+	margin-left: 1.5rem;
+	font-weight: bold;
+}
+
+header .logo img{
+	width: 100%;
+	height: 4rem;
+	/*border-radius: 50%;*/
+}
+
+
+header .fa-bars{
+	font-size: 2rem;
+	color: #1E90FF;
+	margin: 1rem;
+	cursor: pointer;
+	display: none;
+	transition: .2s;
+}
+header .fa-times{
+	transform: rotate(180deg);
+	color: #fff;
+}
+
+/********small screen resolution*********/
+@media only screen and (max-width:768px) {
+html{
+		font-size: 65%;
+		padding: 0;
+		margin: 0;
+	}
+	.flex {
+		width: 100%;
+	}
+	
+	    .notification-badge {
+        font-size: 10px;
+        min-width: 18px; /* Adjust badge size on smaller screens */
+    }
+header{
+	position: fixed;
+	width: 90%;
+	margin-left: 0.1rem;
+}
+
+header .logo p{
+	display: none;
+}
+header .fa-bars{
+		display: block;
+}
+header .navbar{
+	position: fixed;
+	top: 1rem; left: 0;
+	width: 80%;
+	margin-top: -1.1rem;
+	margin-left: 2rem;
+	background: #0288d1;
+	border-radius: 1rem;
+	opacity: 0; 
+	transition: .2s, linear;  
+}
+
+header .navbar ul{
+	flex-flow: column;
+	padding: 2rem 0;
+}
+
+header .navbar ul li{
+	margin: 0.2rem 0;
+	width: 100%;
+	text-align: center;
+}
+
+header .navbar ul li a{
+	font-size: 1.8rem;
+	display: block;
+	margin: 1px auto;
+}
+
+header .nav-toggle{
+	top: 5.5rem;
+	opacity: 1; 
+}
+  
+}
+
+/****************************************************************/
+
+
+/* Full-width input fields */
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 8px 16px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: rgb(29, 29, 212);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+    text-transform: uppercase;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f55e53;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  .container label{
+      color: blue;
+      font-size: 20px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 355px; /* Could be more or less, depending on screen size */
+    border-radius: 12px;
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+
+
+section{
+   background-image: url(../images/hero-bg.png);
+
+    background-size: cover;
+    /*background: #111;*/   
+}
+.home-section{
+    margin: auto;
+    width: 95%; 
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    box-shadow: 13px 13px 20px rgb(217, 227, 231), -13px -13px 20px #f1f1f1;
+}
+
+@media(max-width:860px){
+.home-section{
+    grid-template-columns: repeat(2, 1fr);
+}
+    .tables{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:530px){
+   .home-section{
+       grid-template-columns: 1fr;
+   }
+}
+
+.col-md-5 img{
+    width: 415px;
+    height: 415px;
+    border-radius: 50%;
+    margin: auto;
+
+}
+
+.message{
+    color: rgb(49, 49, 143);
+    margin: auto;
+    margin-top: 15%;
+}
+.message p{
+  font-style: italic;
+    font-family: sans-serif;
+    color: #47a1c5;
+}
+
+.appointment{
+    background: rgb(25, 25, 83);
+    margin-top: 57px;
+    border-radius: 16px;
+    width: 150px;
+}
+
+.mypage{
+  margin-top: 100px;
+  z-index: 1;
+}
+.messaging p span{
+  font-size: 26px;
+  color: #442791;
+}
+.messaging p{
+  color: #47a1c5;
+  font-size: 20px;
+}
+
+.aboutus{
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 100%; /* Could be more or less, depending on screen size */
+    border-radius: 12px;
+}
+.vision{
+    margin: auto;
+    width: 80%;
+}
+.vision img{
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+}
+.vision img:hover{
+    padding: 8px;
+    transition: 0.4s;
+    border: 2px solid blue;
+}
+
+.coovalue{
+  margin: auto;
+  width: 60%; 
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  box-shadow: 13px 13px 20px rgb(217, 227, 231), -13px -13px 20px #f1f1f1;
+}
+
+@media(max-width:860px){
+  .coovalue{
+      grid-template-columns: repeat(2, 1fr);
+  }
+      .tables{
+          grid-template-columns: 1fr;
+      }
+  }
+  
+  @media(max-width:530px){
+     .coovalue{
+         grid-template-columns: 1fr;
+     }
+  }
+
+.coovalue .mission{
+    margin-left: 15px;
+}
+
+.main{
+	width: 100%;
+	height: 550px;
+}
+
+.hero {
+            text-align: center;
+            padding: 50px;
+            background: #e1f5fe;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: #0288d1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .about, .services {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+        }
+		
+		/********Medication css**************/
+		.about, .services, .medications {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+        }
+		#medications{
+			height: auto;
+		}
+        .medications img {
+            width: 220px;
+            height: 180px;
+            margin: 10px;
+        }
+        .medications .medication-item {
+            display: inline-block;
+            width: 250px;
+            margin: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+		/**********end medication*************/
+		/*************health advice***********/
+	     .health-advice {
+            padding: 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+        }
+		#health-advice{
+			height: auto;
+		}
+        .health-advice img {
+            width: 40%;
+            height: auto;
+            margin: 10px;
+        }
+        .health-advice .advice-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        .health-advice .advice-text {
+            flex: 1;
+            padding-left: 20px;
+			width: 100%;
+			font-size: 1.2rem;
+        }
+
+		/**********end health advice***************/
+		/****************footer css***************/
+        footer {
+            background: #0288d1;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+		
+		@media (max-width: 768px) {
+           
+            .medications .medication-item, .health-advice .advice-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .health-advice .advice-text {
+                padding-left: 0;
+            }
+        }
+		/*********contact form************/
+		/* Contact Form Container */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form button.submit-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.contact-form button.submit-btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 10px;
+  }
+
+  .contact-form input, .contact-form textarea, .contact-form button {
+    font-size: 14px;
+  }
+}

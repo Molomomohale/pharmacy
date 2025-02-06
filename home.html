@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maluti Pharmacy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #0288d1;
+			width: 95%;
+			position: fixed;
+			top: 1.5rem; left: 50%;
+			transform: translateX(-50%);
+			border-radius: 0.8rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 0.5rem;
+			z-index: 1000;
+			transition: .2s;
+        }
+		header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background: #e1f5fe;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: #0288d1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .about, .services {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background: #0288d1;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+	<img src="logo.png" alt="Maluti Pharmacy Logo">
+        <h1>Maluti Pharmacy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="medications.html">Medications</a></li>
+                <li><a href="health-advice.html">Health Advice</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Providing Quality Medications & Expert Advice</h2>
+        <p>Ensuring your health and well-being with professional pharmaceutical care.</p>
+        <a href="services.html" class="btn">Explore Our Services</a>
+    </section>
+    
+    <section class="about">
+        <h2>Who We Are</h2>
+        <p>Maluti Pharmacy is dedicated to optimizing drug treatments and providing expert consultations.</p>
+        <a href="about.html" class="btn">Learn More</a>
+    </section>
+    
+    <section class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Prescription Medications</li>
+            <li>Over-the-Counter Drugs</li>
+            <li>Health Consultations</li>
+        </ul>
+        <a href="services.html" class="btn">View All Services</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Maluti Pharmacy. All Rights Reserved.</p>
+        <p>Contact us: info@malutipharmacy.com | +266 123 4567</p>
+    </footer>
+</body>
+</html>

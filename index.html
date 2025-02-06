@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="pharmacy.css">
+    </head>
+    <body>
+
+<header> 
+    <div class="logo">
+        <img src="logo1.png"width="50"height="50"style="border-radius:50%">
+        <p>
+		Maluti
+		</p>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" class="active" onclick="setActive(this)">Home</a></li>
+          
+                <li><a href="#main">About Us</a></li>
+                <li><a href="#medications">Medications</a></li>
+                <li><a href="#health-advice">Health Advice</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="fas fa-bars"></div>
+</header>
+		
+<script>
+$(document).ready(function () {
+    // Toggle navbar on mobile
+    function toggleNavbar() {
+        $('.fa-bars').click(function () {
+            $(this).toggleClass('fa-times');
+            $('.navbar').toggleClass('nav-toggle');
+        });
+    }
+
+    // Handle scroll and load events
+    function handleScrollAndLoad() {
+        $(window).on('scroll load', function () {
+            $('.fa-bars').removeClass('fa-times');
+            $('.navbar').removeClass('nav-toggle');
+
+            // Add or remove header-active class based on scroll position
+            if ($(window).scrollTop() > 30) {
+                $('header').addClass('header-active');
+            } else {
+                $('header').removeClass('header-active');
+            }
+
+            // Highlight active section in navbar
+            highlightActiveSection();
+        });
+    }
+
+    // Highlight active section in the navbar
+    function highlightActiveSection() {
+        $('section').each(function () {
+            var id = $(this).attr('id');
+            var height = $(this).height();
+            var offset = $(this).offset().top - 200;
+            var top = $(window).scrollTop();
+
+            if (top >= offset && top < offset + height) {
+                $('.navbar ul li a').removeClass('active');
+                $('.navbar').find('[href="#' + id + '"]').addClass('active');
+            }
+        });
+    }
+
+    // Initialize all functions
+    function init() {
+        toggleNavbar();
+        handleScrollAndLoad();
+    }
+
+    // Call init to run the setup
+    init();
+});
+
+// Smooth scrolling for navbar links
+$(document).ready(function () {
+    $('.navbar ul li a').on('click', function (e) {
+        // Prevent default anchor behavior
+        e.preventDefault();
+
+        // Get the target section's ID
+        const target = $(this).attr('href');
+
+        // Scroll to the target section with offset for the fixed header
+        $('html, body').animate({
+            scrollTop: $(target).offset().top - 80 // Adjust offset to match header height
+        }, 500); // 500ms for smooth scrolling
+    });
+});
+
+</script>
+        
+            <script src="script.js"></script>
+
+   <div class="mypage">
+
+        <!----------------------CREATE HOME PAGE STRUCTURE----------------------------------->
+        <!-----main section-->
+       
+        <section class="home-section" id="home">
+        <!--/.bg-holder-->
+            
+        <div class="message">
+            <h1 class="fw-light font-base fs-6 fs-xxl-7">We're <strong>determined </strong>for<br />your&nbsp;<strong>better life.</strong></h1>
+              <p class="fs-1 mb-5">You can get the care you need 24/7 – be it online or in <br />person. You will be treated by caring specialist doctors. </p>
+            
+       <button class="appointment" type="submit" onclick="document.getElementById('id04').style.display='block'">About Us</button>
+            </div>
+            
+          <div class="row min-vh-xl-100 min-vh-xxl-25">
+              
+            <div class="messaging">
+
+              <p class="fs-1 mb-5"><span>Maluti Pharmacy</span> is a small pharmacy that discover, produce, prepare, dispense, review and monitors 
+              medications in the heart of the mountains in Lesotho. </p>
+            </div>
+              
+            <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img src="rx-products.png" alt="hero-header" /></div>
+          </div>
+   
+      </section>
+
+        <!---close-->
+        <!---------------------------------------------------------------------------------------->
+
+
+        <!------------CREATE Patient LOGIN CODE---------------------------->
+
+        <div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img2.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <h2>Patient</h2>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit" name="patient">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+        <!-----------CLOSE PATIENT LOGIN---------------------> 
+
+
+
+                <!------------CREATE PHARMACIST LOGIN CODE---------------------------->
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img2.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <h2>Pharmacist</h2>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit" name="pharmacist">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+        <!-----------CLOSE PHARMACISTS LOGIN---------------------> 
+
+
+
+                        <!------------CREATE ADMIN LOGIN CODE---------------------------->
+
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" method="post" action="admin/dashboard.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img2.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <h2 style="color: red">ADMIN ONLY!!</h2>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit" name="pharmacist">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <a href="admin_dashboard.php">dashboard</a>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id03');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+        <!-----------CLOSE ADMIN LOGIN---------------------> 
+             
+             
+           <!---------------ABOUT US--->  
+             
+<div id="id04" class="modal">
+  
+  <div class="aboutus animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <h2>About Us</h2>
+
+    <div class="container">
+
+    <p>Maluti Pharmacy is a small pharmacy that discover, produce, prepare, dispense, review and monitors 
+    medications in the heart of the mountains in Lesotho. The pharmacists in the pharmacy play a pivotal role in 
+    optimising drug treatments for individuals since they are knowledgeable about the modes of actions of 
+    particular drugs and their metabolisms and physiological effects on the human body in great detail. 
+    Patients treat pharmacists as consultants, someone to help them choose an over-the-counter medicine or 
+    make sense of a prescription’s dosage and instructions. In most cases pharmacists would rarely have enough 
+    information about a person’s medical history to give more complete and well informed advice.
+</p>
+    </div>
+      <div class="coovalue">
+      <div class="mission">
+          <h1>We are developing a healthcare
+            system around you</h1>
+          <p>We think that everyone should have easy access to excellent
+              healthcare. Our aim is to make the procedure as simple as
+              possible for our patients and to offer treatment no matter
+             where they are — in person or at their convenience.</p>
+          </div>
+          
+          <img src="appointment.png" width="200px" height="200px" style="border-radius: 50%"/>
+          
+
+      </div>
+      
+         <div class="vision">
+            <img src="images%20(4).jpeg"/>
+            <img src="rx-products.png"/>
+            <img src="rx_products_oral_hormonedisorders_cyproteroneacetate.jpg"/>
+            <img src="rxproducts_oral_resp.jpg"/>
+
+            <img src="images%20(3).jpeg"/>
+
+            <img src="rx_products_oral_phlebology_diosmin600.jpg"/>
+        </div>
+    </div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id04');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+    <div class="main" id="main">
+        <!-----------CLOSE ABOUT US MODEL---------------------> 
+      <section class="hero">
+        <h2>Providing Quality Medications & Expert Advice</h2>
+        <p>Ensuring your health and well-being with professional pharmaceutical care.</p>
+        <a href="services.html" class="btn">Explore Our Services</a>
+    </section>
+    
+    <section class="about">
+        <h2>Who We Are</h2>
+        <p>Maluti Pharmacy is dedicated to optimizing drug treatments and providing expert consultations.</p>
+        <a href="about.html" class="btn">Learn More</a>
+    </section>
+    
+    <section class="services" id="main">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Prescription Medications</li>
+            <li>Over-the-Counter Drugs</li>
+            <li>Health Consultations</li>
+        </ul>
+        <a href="services.html" class="btn">View All Services</a>
+    </section
+	
+	</div>
+	
+	    <section class="medications" id="medications">
+        <h2>Medications</h2>
+        <div class="medication-item">
+            <img src="PainReliefTablets.jpeg" alt="Pain Relief">
+            <h3>Pain Relief Tablets</h3>
+            <p>Effective pain relief for headaches and body pain.</p>
+            <p><strong>Price: M50</strong></p>
+        </div>
+        <div class="medication-item">
+            <img src="Cough Syrup.jpeg" alt="Cough Syrup">
+            <h3>Cough Syrup</h3>
+            <p>Soothes throat irritation and relieves coughing.</p>
+            <p><strong>Price: M80</strong></p>
+        </div>
+        <div class="medication-item">
+            <img src="Antibiotics.jpeg" alt="Antibiotics">
+            <h3>Antibiotics</h3>
+            <p>Diosmin is commercially available in the United States.</p>
+            <p><strong>Price: M120</strong></p>
+        </div>
+		
+		 <div class="medication-item">
+            <img src="diosmin.jpeg" alt="Antibiotics">
+            <h3>Diosmin</h3>
+            <p>Helps fight bacterial infections effectively.</p>
+            <p><strong>Price: M180</strong></p>
+        </div>
+    </section>
+	
+	<section class="health-advice" id="health-advice">
+        <h2>Health Advice</h2>
+        <div class="advice-content">
+            <img src="appointment.png" alt="Health Consultation">
+            <div class="advice-text">
+                <h3>Stay Healthy with Expert Advice</h3>
+                <p>Our pharmacists provide valuable health advice to help you make informed decisions about your well-being. Whether it's managing chronic conditions, understanding medication side effects, or maintaining a balanced lifestyle, we are here to guide you.</p>
+                <p>Visit us for personalized consultations and expert recommendations.</p>
+            </div>
+        </div>
+    </section>
+	
+	<div class="contact-container" id="contact">
+  <h2>Contact Us</h2>
+  <form action="submit_form.php" method="post" class="contact-form">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your full name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email address">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Type your message here"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="captcha">Enter the number <b>3</b> + <b>2</b></label>
+      <input type="text" id="captcha" name="captcha" required placeholder="Answer here">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="submit-btn">Submit</button>
+    </div>
+  </form>
+</div>
+
+    
+    <footer>
+        <p>&copy; 2025 Maluti Pharmacy. All Rights Reserved.</p>
+        <p>Contact us: info@malutipharmacy.com | +266 69455615</p>
+    </footer>
+</div>
+    </body>
+</html>
