@@ -790,6 +790,9 @@ section{
   .contact-container {
     padding: 15px;
   }
+	.col-md-5 img{
+		width: 200px;
+	}
 }
 
 @media (max-width: 480px) {
