@@ -657,7 +657,7 @@ section{
         }
 		
 		/********Medication css**************/
-		.about, .services, .medications {
+	.about, .services, .medications {
             padding: 20px;
             text-align: center;
             background: white;
@@ -680,7 +680,12 @@ section{
             background: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            transition: all 0.6s ease-in-out;
         }
+         .medications .medication-item:hover{
+		 transform: translateY(-5px);
+	 }
 		/**********end medication*************/
 		/*************health advice***********/
 	     .health-advice {
