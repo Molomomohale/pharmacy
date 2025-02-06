@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Details</title>
+    <style>
+        /* Simple styling for clarity */
+        .product-details {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .product-details img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="product-details" class="product-details">
+        <h1>Product Details</h1>
+        <div id="product-image"></div>
+        <h2 id="product-name"></h2>
+        <p id="product-description"></p>
+        <p><strong>Price: <span id="product-price"></span></strong></p>
+    </div>
+
+    <script>
+        // JavaScript to display the correct product based on the query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+
+        const productData = {
+            'pain-relief-tablets': {
+                name: 'Pain Relief Tablets',
+                description: 'Effective pain relief for headaches and body pain.',
+                price: 'M50',
+                image: 'PainReliefTablets.jpeg'
+            },
+            'cough-syrup': {
+                name: 'Cough Syrup',
+                description: 'Soothes throat irritation and relieves coughing.',
+                price: 'M80',
+                image: 'Cough Syrup.jpeg'
+            },
+            'antibiotics': {
+                name: 'Antibiotics',
+                description: 'Diosmin is commercially available in the United States.',
+                price: 'M120',
+                image: 'Antibiotics.jpeg'
+            },
+            'diosmin': {
+                name: 'Diosmin',
+                description: 'Helps fight bacterial infections effectively.',
+                price: 'M180',
+                image: 'diosmin.jpeg'
+            }
+        };
+
+        // Get the product details based on the URL parameter
+        const productInfo = productData[product];
+
+        if (productInfo) {
+            // Populate the HTML elements with the product details
+            document.getElementById('product-name').innerText = productInfo.name;
+            document.getElementById('product-description').innerText = productInfo.description;
+            document.getElementById('product-price').innerText = productInfo.price;
+            document.getElementById('product-image').innerHTML = `<img src="${productInfo.image}" alt="${productInfo.name}">`;
+        } else {
+            // If no product is found, show an error message
+            document.getElementById('product-details').innerHTML = '<h2>Product not found</h2>';
+        }
+    </script>
+</body>
+</html>
