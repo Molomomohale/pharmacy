@@ -533,8 +533,8 @@ section{
 }
 
 .col-md-5 img{
-    width: 215px;
-    height: 215px;
+    width: 415px;
+    height: 415px;
     border-radius: 50%;
     margin: auto;
 
@@ -610,6 +610,13 @@ section{
       .tables{
           grid-template-columns: 1fr;
       }
+ .col-md-5 img{
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+    margin: auto;
+
+}
   }
   
   @media(max-width:530px){
